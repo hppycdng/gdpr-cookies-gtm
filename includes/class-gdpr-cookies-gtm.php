@@ -114,6 +114,8 @@ class Gdpr_Cookies_Gtm {
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gdpr-cookies-gtm-submenu.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gdpr-cookies-gtm-submenupage.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gdpr-cookies-gtm-admin.php';
 
 		/**

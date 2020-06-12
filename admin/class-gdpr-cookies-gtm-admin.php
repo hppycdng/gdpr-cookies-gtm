@@ -1,5 +1,7 @@
 <?php
 
+
+
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -51,6 +53,9 @@ class Gdpr_Cookies_Gtm_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+
+		$plugin = new Submenu( new Submenu_Page() );
+		$plugin->init();
 
 	}
 
