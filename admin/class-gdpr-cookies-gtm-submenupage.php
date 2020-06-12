@@ -14,6 +14,9 @@
 	 * @package Custom_Admin_Settings
 	 */
 	class Submenu_Page {
+		public function __construct( $deserializer ) {
+			$this->deserializer = $deserializer;
+		}
 
 		/**
 		 * This function renders the contents of the page associated with the Submenu
@@ -21,6 +24,7 @@
 		 * Submenu class.
 		 */
 		public function render() {
+			$dataFromOptionsTable = $this->deserializer->get_value( 'gdpr-cookies-gtm-settings' );
 			include_once( 'partials/gdpr-cookies-gtm-admin-display.php' );
 		}
 	}

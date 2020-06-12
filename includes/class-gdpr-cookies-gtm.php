@@ -58,6 +58,15 @@ class Gdpr_Cookies_Gtm {
 	protected $version;
 
 	/**
+	 * The deserializer version of the plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   protected
+	 * @var      Gdpr_Cookies_Gtm_Deserializer
+	 */
+	protected $deserializer;
+
+	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -75,10 +84,13 @@ class Gdpr_Cookies_Gtm {
 		$this->plugin_name = 'gdpr-cookies-gtm';
 
 		$this->load_dependencies();
+
+		$this->deserializer = new Gdpr_Cookies_Gtm_Deserializer();
+
+
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -110,6 +122,11 @@ class Gdpr_Cookies_Gtm {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gdpr-cookies-gtm-i18n.php';
+		/**
+		 * The class responsible for obtaining data from the database.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gdpr-cookies-gtm-deserializer.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gdpr-cookies-gtm-serializer.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
@@ -145,6 +162,7 @@ class Gdpr_Cookies_Gtm {
 
 	}
 
+
 	/**
 	 * Register all of the hooks related to the admin area functionality
 	 * of the plugin.
@@ -154,7 +172,7 @@ class Gdpr_Cookies_Gtm {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Gdpr_Cookies_Gtm_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Gdpr_Cookies_Gtm_Admin( $this->get_plugin_name(), $this->get_version(), $this->deserializer );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
@@ -216,5 +234,6 @@ class Gdpr_Cookies_Gtm {
 	public function get_version() {
 		return $this->version;
 	}
+
 
 }

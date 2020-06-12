@@ -49,12 +49,16 @@ class Gdpr_Cookies_Gtm_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $plugin_name, $version, $deserializer ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->deserializer = $deserializer;
 
-		$plugin = new Submenu( new Submenu_Page() );
+		$serializer = new Gdpr_Cookies_Gtm_Serializer();
+		$serializer->init();
+
+		$plugin = new Submenu( new Submenu_Page($deserializer) );
 		$plugin->init();
 
 	}
