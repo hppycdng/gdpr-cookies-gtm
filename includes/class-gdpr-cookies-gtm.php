@@ -188,7 +188,8 @@ class Gdpr_Cookies_Gtm {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Gdpr_Cookies_Gtm_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Gdpr_Cookies_Gtm_Public( $this->get_plugin_name(), $this->get_version(), $this->deserializer );
+		$plugin_public->init();
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
