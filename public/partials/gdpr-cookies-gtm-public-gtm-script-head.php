@@ -15,7 +15,7 @@
 
 <!-- Google Tag Manager -->
 <script>
-    function callTagmanagerScript() {
+    function callTagmanagerScript(callback) {
         if (Cookies.get('user-gdpr-preferences') === "set") {
 
             (function (w, d, s, l, i) {
@@ -32,8 +32,9 @@
                 f.parentNode.insertBefore(j, f);
             })(window, document, 'script', 'dataLayer', '<?php echo $this->gtm_container_id; ?>');
         }
+        if (callback instanceof Function) { callback(); }
     }
 
-    callTagmanagerScript();
+    callTagmanagerScript(function () {});
 </script>
 <!-- End Google Tag Manager -->

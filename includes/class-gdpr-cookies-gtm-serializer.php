@@ -23,6 +23,26 @@
      }
 
      /**
+      * Recursive sanitation for an array
+      *
+      * @param $array
+      *
+      * @return mixed
+      */
+     public function recursive_sanitize_text_field($array)
+     {
+         foreach ($array as $key => &$value) {
+             if (is_array($value)) {
+                 $value = $this->recursive_sanitize_text_field($value);
+             } else {
+                 $value = sanitize_text_field($value);
+             }
+         }
+
+         return $array;
+     }
+
+     /**
       * Validates the incoming nonce value, verifies the current user has
       * permission to save the value from the options page and saves the
       * option to the database.
@@ -42,6 +62,8 @@
          $dataToSerialize[ "container-id" ]     = (null !== wp_unslash($_POST[ 'gdpr-cookies-gtm-container-id' ])) ? sanitize_text_field($_POST[ 'gdpr-cookies-gtm-container-id' ]) : "";
          $dataToSerialize[ "banner-headline" ]  = (null !== wp_unslash($_POST[ 'gdpr-cookies-gtm-banner-headline' ])) ? sanitize_text_field($_POST[ 'gdpr-cookies-gtm-banner-headline' ]) : "";
          $dataToSerialize[ "banner-copy-text" ] = (null !== wp_unslash($_POST[ 'gdpr-cookies-gtm-banner-copy-text' ])) ? sanitize_textarea_field($_POST[ 'gdpr-cookies-gtm-banner-copy-text' ]) : "";
+         $dataToSerialize[ "purposes" ] = (null !== wp_unslash($_POST[ 'gdpr-cookies-gtm-purposes' ])) ?
+					 array_values(array_filter($this->recursive_sanitize_text_field($_POST[ 'gdpr-cookies-gtm-purposes' ]))) : "";
 
          $dataToStore = serialize($dataToSerialize);
          update_option('gdpr-cookies-gtm-settings', $dataToStore);

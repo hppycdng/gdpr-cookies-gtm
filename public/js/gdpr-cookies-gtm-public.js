@@ -36,6 +36,58 @@ if ( Cookies.get('user-gdpr-preferences') === undefined) {
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	$(function() {
+
+		function hideCookieBanner() {
+
+		}
+
+		function showCookieBanner() {
+
+		}
+
+		function setPreferenceCookies(userCookiePreference = [], callback) {
+
+			Cookies.set('cookie-preference', JSON.stringify(userCookiePreference));
+			if (callback instanceof Function) { callback(); }
+		}
+
+		function evaluateFormAndSetSriptsAndCookies() {
+			var inputElements = cookieBannerElem.find('input[type="checkbox"]');
+			var userCookiePreference = [];
+			inputElements.each( function() {
+				var name = $(this).attr('name');
+				var state = $(this).is(':checked');
+				userCookiePreference.push({ name, state})
+			});
+			console.log(userCookiePreference);
+			setPreferenceCookies(userCookiePreference, function() {
+				populateDataLayer(function(){
+					callTagmanagerScript();
+				});
+			});
+			hideCookieBanner();
+		}
+
+		var cookieBannerElem = $('#gdpr-cookies-gtm-cookie-banner');
+
+		$('#gdpr-cookies-gtm-cookie-banner #accept-selection').click( function(e) {
+			e.preventDefault();
+			evaluateFormAndSetSriptsAndCookies();
+		});
+		$('#gdpr-cookies-gtm-cookie-banner #accept-all').click( function(e) {
+			e.preventDefault();
+			var inputElements = cookieBannerElem.find('input[type="checkbox"]');
+			inputElements.each( function() {
+				var elem = $(this);
+				setTimeout( function() {
+					elem.prop("checked", true);
+				}, 2000);
+
+			});
+			evaluateFormAndSetSriptsAndCookies();
+		})
+	});
 
 })( jQuery );
 

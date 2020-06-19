@@ -64,9 +64,9 @@ class Gdpr_Cookies_Gtm_Public
         $this->plugin_name = $plugin_name;
         $this->version = $version;
         $this->deserializer = $deserializer;
-        $this->settings = $this->deserializer->get_value( 'gdpr-cookies-gtm-settings' );
+        $this->settings = $this->deserializer->get_value('gdpr-cookies-gtm-settings');
         $this->gtm_container_id = (array_key_exists('container-id', $this->settings) ? $this->settings['container-id'] :
-					"GTM-XXXXXX");
+                    "GTM-XXXXXX");
     }
 
     public function init()
@@ -74,12 +74,12 @@ class Gdpr_Cookies_Gtm_Public
         add_action('wp_head', array($this, 'display_gtm_datalayer'));
         add_action('wp_head', array($this, 'display_gtm_script_head'));
         add_action('wp_body_open', array($this, 'display_gtm_script_body'));
+        add_action('wp_body_open', array($this, 'display_cookie_banner_markup'));
     }
 
     public function display_gtm_datalayer()
     {
-
-     include_once('partials/gdpr-cookies-gtm-public-gtm-datalayer.php');
+        include_once('partials/gdpr-cookies-gtm-public-gtm-datalayer.php');
     }
 
     public function display_gtm_script_body()
@@ -90,6 +90,10 @@ class Gdpr_Cookies_Gtm_Public
     public function display_gtm_script_head()
     {
         include_once('partials/gdpr-cookies-gtm-public-gtm-script-head.php');
+    }
+    public function display_cookie_banner_markup()
+    {
+        include_once('partials/gdpr-cookies-gtm-public-gtm-cookie-banner-markup.php');
     }
 
 

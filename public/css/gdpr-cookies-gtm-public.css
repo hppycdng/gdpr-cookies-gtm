@@ -2,3 +2,16 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+#gdpr-cookies-gtm-cookie-banner {
+    display: block;
+    position: fixed;
+    bottom: 30px;
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #00a0d2;
+    color: white;
+    z-index: 990;
+}
