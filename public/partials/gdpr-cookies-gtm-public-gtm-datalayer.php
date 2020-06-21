@@ -14,39 +14,7 @@
 ?>
 <!-- Populate GTM dataLayer with Cookie preferences -->
 <script>
-    function populateDataLayer(callback)
-    {
-        if (Cookies.get('cookie-preference')) {
 
-            var userCookiePreferences = JSON.parse(Cookies.get('cookie-preference'));
-            console.log(userCookiePreferences);
-
-            var dataLayer = [];
-            userCookiePreferences.forEach(function (item) {
-                var key = item.name;
-                var data = {};
-                data[key] = item.state;
-                dataLayer.push(data);
-            });
-        }
-        if (callback instanceof Function) { callback(); }
-    }
-
-    populateDataLayer(function(){});
-
-    if (Cookies.get('cookie-preference')) {
-
-        var userCookiePreferences = JSON.parse(Cookies.get('cookie-preference'));
-        console.log(userCookiePreferences);
-
-        var dataLayer = [];
-        userCookiePreferences.forEach(function (item) {
-            var key = item.name;
-            var data = {};
-            data[key] = item.state;
-            dataLayer.push(data);
-        });
-    }
 
 </script>
 <!-- End Populate GTM dataLayer with Cookie preferences -->
