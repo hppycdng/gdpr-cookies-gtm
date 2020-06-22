@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -22,7 +20,8 @@
  * @subpackage Gdpr_Cookies_Gtm/admin
  * @author     Matthias Radscheit <matthias@happycoding.it>
  */
-class Gdpr_Cookies_Gtm_Admin {
+class Gdpr_Cookies_Gtm_Admin
+{
 
 	/**
 	 * The ID of this plugin.
@@ -49,7 +48,8 @@ class Gdpr_Cookies_Gtm_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version, $deserializer ) {
+	public function __construct($plugin_name, $version, $deserializer)
+	{
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
@@ -58,9 +58,8 @@ class Gdpr_Cookies_Gtm_Admin {
 		$serializer = new Gdpr_Cookies_Gtm_Serializer();
 		$serializer->init();
 
-		$plugin = new Submenu( new Submenu_Page($deserializer) );
+		$plugin = new Submenu(new Submenu_Page($deserializer));
 		$plugin->init();
-
 	}
 
 	/**
@@ -68,7 +67,8 @@ class Gdpr_Cookies_Gtm_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function enqueue_styles()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -82,8 +82,7 @@ class Gdpr_Cookies_Gtm_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/gdpr-cookies-gtm-admin.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/gdpr-cookies-gtm-admin.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -91,7 +90,8 @@ class Gdpr_Cookies_Gtm_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function enqueue_scripts()
+	{
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -105,8 +105,6 @@ class Gdpr_Cookies_Gtm_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/gdpr-cookies-gtm-admin.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/gdpr-cookies-gtm-admin.js', array('jquery'), $this->version, false);
 	}
-
 }
