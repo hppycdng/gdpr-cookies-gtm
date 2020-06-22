@@ -11,6 +11,3 @@
  * @package    Gdpr_Cookies_Gtm
  * @subpackage Gdpr_Cookies_Gtm/public/partials
  */
-?>
-
-

@@ -26,8 +26,8 @@
  */
 
 // If this file is called directly, abort.
-if (! defined('WPINC')) {
-    die;
+if (!defined('WPINC')) {
+  die;
 }
 
 /**
@@ -43,8 +43,8 @@ define('GDPR_COOKIES_GTM_VERSION', '1.0.0');
  */
 function activate_gdpr_cookies_gtm()
 {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-gdpr-cookies-gtm-activator.php';
-    Gdpr_Cookies_Gtm_Activator::activate();
+  require_once plugin_dir_path(__FILE__) . 'includes/class-gdpr-cookies-gtm-activator.php';
+  Gdpr_Cookies_Gtm_Activator::activate();
 }
 
 /**
@@ -53,8 +53,8 @@ function activate_gdpr_cookies_gtm()
  */
 function deactivate_gdpr_cookies_gtm()
 {
-    require_once plugin_dir_path(__FILE__) . 'includes/class-gdpr-cookies-gtm-deactivator.php';
-    Gdpr_Cookies_Gtm_Deactivator::deactivate();
+  require_once plugin_dir_path(__FILE__) . 'includes/class-gdpr-cookies-gtm-deactivator.php';
+  Gdpr_Cookies_Gtm_Deactivator::deactivate();
 }
 
 register_activation_hook(__FILE__, 'activate_gdpr_cookies_gtm');
@@ -77,7 +77,7 @@ require plugin_dir_path(__FILE__) . 'includes/class-gdpr-cookies-gtm.php';
  */
 function run_gdpr_cookies_gtm()
 {
-    $plugin = new Gdpr_Cookies_Gtm();
-    $plugin->run();
+  $plugin = new Gdpr_Cookies_Gtm();
+  $plugin->run();
 }
 run_gdpr_cookies_gtm();

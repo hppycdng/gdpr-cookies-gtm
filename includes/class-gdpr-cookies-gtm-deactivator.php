@@ -20,17 +20,17 @@
  * @subpackage Gdpr_Cookies_Gtm/includes
  * @author     Matthias Radscheit <matthias@happycoding.it>
  */
-class Gdpr_Cookies_Gtm_Deactivator {
+class Gdpr_Cookies_Gtm_Deactivator
+{
 
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function deactivate() {
-
-	}
-
+  /**
+   * Short Description. (use period)
+   *
+   * Long Description.
+   *
+   * @since    1.0.0
+   */
+  public static function deactivate()
+  {
+  }
 }
