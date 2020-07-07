@@ -77,21 +77,9 @@ class Gdpr_Cookies_Gtm_Public
     $settings = $this->deserializer->get_value('gdpr-cookies-gtm-settings');
 
     if (array_key_exists('is-active', $settings) && $settings['is-active'] === 1) {
-      add_action('wp_head', array($this, 'display_gtm_datalayer'));
       add_action('wp_head', array($this, 'display_gtm_script_head'));
-      add_action('wp_body_open', array($this, 'display_gtm_script_body'));
       add_action('wp_body_open', array($this, 'display_cookie_banner_markup'));
     }
-  }
-
-  public function display_gtm_datalayer()
-  {
-    include_once('partials/gdpr-cookies-gtm-public-gtm-datalayer.php');
-  }
-
-  public function display_gtm_script_body()
-  {
-    include_once('partials/gdpr-cookies-gtm-public-gtm-script-body.php');
   }
 
   public function display_gtm_script_head()
