@@ -82,7 +82,7 @@ class Gdpr_Cookies_Gtm_Admin
      * class.
      */
 
-    wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/gdpr-cookies-gtm-admin.css', array(), $this->version, 'all');
+    wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/css/main.min.css', array(), $this->version, 'all');
   }
 
   /**
@@ -105,6 +105,6 @@ class Gdpr_Cookies_Gtm_Admin
      * class.
      */
 
-    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/gdpr-cookies-gtm-admin.js', array('jquery'), $this->version, false);
+    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/js/main.min.js', array('jquery'), $this->version, false);
   }
 }

@@ -51,6 +51,7 @@ class Gdpr_Cookies_Gtm_Public
 
   private $deserializer;
 
+
   /**
    * Initialize the class and set its properties.
    *
@@ -68,18 +69,10 @@ class Gdpr_Cookies_Gtm_Public
       "GTM-XXXXXX");
   }
 
-  /**
-   * @since 1.0.0
-   *
-   */
   public function init()
   {
-    $settings = $this->deserializer->get_value('gdpr-cookies-gtm-settings');
-
-    if (array_key_exists('is-active', $settings) && $settings['is-active'] === 1) {
-      add_action('wp_head', array($this, 'display_gtm_script_head'));
-      add_action('wp_body_open', array($this, 'display_cookie_banner_markup'));
-    }
+    add_action('wp_head', array($this, 'display_gtm_script_head'));
+    add_action('wp_body_open', array($this, 'display_cookie_banner_markup'));
   }
 
   public function display_gtm_script_head()
@@ -111,7 +104,7 @@ class Gdpr_Cookies_Gtm_Public
      * class.
      */
 
-    wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/gdpr-cookies-gtm-public.css', array(), $this->version, 'all');
+    wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/css/main.min.css', array(), $this->version, 'all');
   }
 
   /**
@@ -134,6 +127,7 @@ class Gdpr_Cookies_Gtm_Public
      * class.
      */
 
-    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/gdpr-cookies-gtm-public.js', array('jquery'), $this->version, false);
+    wp_enqueue_script($this->plugin_name . '-lib', plugin_dir_url(__FILE__) . './../dist/js/js.cookie.js', array('jquery'), $this->version, false);
+    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/js/main.min.js', array('jquery'), $this->version, false);
   }
 }

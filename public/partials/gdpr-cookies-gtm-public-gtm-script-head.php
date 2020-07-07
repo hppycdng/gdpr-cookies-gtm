@@ -62,20 +62,21 @@
     }
   }
 
-  // if (Cookies.get('cookie-preference')) {
+  if (Cookies.get('cookie-preference')) {
 
-  //   var userCookiePreferences = JSON.parse(Cookies.get('cookie-preference'));
+    var userCookiePreferences = JSON.parse(Cookies.get('cookie-preference'));
+    console.log(userCookiePreferences);
 
-  //   window.dataLayer = window.dataLayer || [];
-  //   userCookiePreferences.forEach(function(item) {
-  //     var key = item.name;
-  //     var data = {};
-  //     data[key] = item.state;
-  //     window.dataLayer.push(data);
-  //   });
-  // }
+    window.dataLayer = window.dataLayer || [];
+    userCookiePreferences.forEach(function(item) {
+      var key = item.name;
+      var data = {};
+      data[key] = item.state;
+      window.dataLayer.push(data);
+    });
+  }
   populateDataLayer(function() {
-        callTagmanagerScript();
-      };
+    callTagmanagerScript();
+  });
 </script>
 <!-- End Google Tag Manager -->

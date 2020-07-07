@@ -57,7 +57,6 @@ class Gdpr_Cookies_Gtm_Serializer
     }
 
     $dataToSerialize = array();
-    // print "<h1>" . wp_unslash( $_POST['gdpr-cookies-gtm-is-active'] ) . $_POST['gdpr-cookies-gtm-is-active'] ."</h1>";
 
     $dataToSerialize["is-active"]        = (null !== wp_unslash($_POST['gdpr-cookies-gtm-is-active']) && $_POST['gdpr-cookies-gtm-is-active'] === "is-active") ? 1 : 0;
     $dataToSerialize["container-id"]     = (null !== wp_unslash($_POST['gdpr-cookies-gtm-container-id'])) ? sanitize_text_field($_POST['gdpr-cookies-gtm-container-id']) : "";

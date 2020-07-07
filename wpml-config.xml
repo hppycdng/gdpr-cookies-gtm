@@ -2,8 +2,8 @@
 
   <admin-texts>
     <key name="gdpr-cookies-gtm-settings">
-      <key name="banner-headline"/>
-      <key name="banner-copy-text"/>
+      <key name="banner-headline" />
+      <key name="banner-copy-text" />
     </key>
   </admin-texts>
 

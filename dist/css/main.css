@@ -1,0 +1,171 @@
+/*! GDPR Cookies GTM Plugin for Wordpress v1.0.0 | (c) 2020 Matthias Radscheit | MIT License */
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+/* line 6, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  z-index: 990;
+  width: 100% !important;
+}
+
+/* line 14, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner {
+  width: 98%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #323B48;
+  color: white;
+  border: 1px solid #979797;
+  border-radius: 10px;
+  padding: 45px 90px;
+}
+
+/* line 26, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .button {
+  border-radius: .2175rem;
+  padding: 1rem 1.875rem;
+  margin-right: 1rem;
+  color: white;
+  font-size: 18px;
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-weight: 500;
+  text-transform: none;
+}
+
+/* line 36, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .button-secondary {
+  border: 1px solid white;
+  background: transparent;
+}
+
+/* line 41, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .button-primary {
+  background-color: #2ec671 !important;
+  border: 1px solid #2ec671 !important;
+}
+
+/* line 46, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .button:hover {
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  -webkit-transition: .1s ease;
+  transition: .1s ease;
+}
+
+/* line 54, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner h4 {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-size: 30px;
+  color: white;
+  font-weight: 700;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+/* line 63, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .text {
+  margin-top: 1rem;
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+}
+
+/* line 71, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .button-wrapper {
+  width: 100%;
+  margin-top: 2.5rem;
+}
+
+/* line 76, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner ul.round {
+  display: block;
+  width: 100%;
+  list-style: none;
+  margin: 2rem 0 0 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+}
+
+/* line 84, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner ul.round li {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  margin-right: 10px;
+}
+
+/* line 91, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label {
+  cursor: pointer;
+  font-size: 16px !important;
+  font-family: 'Nunito Sans', Arial, sans-serif !important;
+  font-weight: 700 !important;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+/* line 102, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* line 111, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .checkmark {
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+/* line 121, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* line 126, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label input:checked ~ .checkmark {
+  background-color: #2EC671;
+}
+
+/* line 130, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* line 136, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* line 140, src/sass/_gdpr-cookies-gtm-public.scss */
+#gdpr-cookies-gtm-cookie-banner-wrapper #gdpr-cookies-gtm-cookie-banner label .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
