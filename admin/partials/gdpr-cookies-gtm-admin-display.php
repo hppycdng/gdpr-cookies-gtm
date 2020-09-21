@@ -39,17 +39,39 @@
           </label>
         </p>
         <p>
-          <label for="gdpr-cookies-gtm-banner-headline"><?php _e('Cookie Banner Headline', 'gdpr-cookies-gtm') ?>
+          <h3>English</h3>
+        </p>
+        <p>
+          <label for="gdpr-cookies-gtm-banner-headline-en"><?php _e('Cookie Banner Headline', 'gdpr-cookies-gtm') ?>
             <br />
-            <input type="text" name="gdpr-cookies-gtm-banner-headline" value="<?php echo (array_key_exists('banner-headline', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-headline'] : "" ?>" />
+            <input type="text" name="gdpr-cookies-gtm-banner-headline-en" value="<?php echo (array_key_exists('banner-headline-en', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-headline-en'] : "" ?>" />
           </label>
         </p>
         <p>
           <label><?php _e('Cookie Banner Copy Text', 'gdpr-cookies-gtm') ?>
             <br />
             <?php
-            $editorContent = (array_key_exists('banner-copy-text', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-copy-text'] : "";
-            $editorId      = 'gdpr-cookies-gtm-banner-copy-text';
+            $editorContent = (array_key_exists('banner-copy-text-en', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-copy-text-en'] : "";
+            $editorId      = 'gdpr-cookies-gtm-banner-copy-text-en';
+            wp_editor($editorContent, $editorId);
+            ?>
+          </label>
+        </p>
+        <p>
+          <h3>Deutsch</h3>
+        </p>
+        <p>
+          <label for="gdpr-cookies-gtm-banner-headline-de"><?php _e('Cookie Banner Headline', 'gdpr-cookies-gtm') ?>
+            <br />
+            <input type="text" name="gdpr-cookies-gtm-banner-headline-de" value="<?php echo (array_key_exists('banner-headline-de', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-headline-de'] : "" ?>" />
+          </label>
+        </p>
+        <p>
+          <label><?php _e('Cookie Banner Copy Text', 'gdpr-cookies-gtm') ?>
+            <br />
+            <?php
+            $editorContent = (array_key_exists('banner-copy-text-de', $dataFromOptionsTable)) ? $dataFromOptionsTable['banner-copy-text-de'] : "";
+            $editorId      = 'gdpr-cookies-gtm-banner-copy-text-de';
             wp_editor($editorContent, $editorId);
             ?>
           </label>
@@ -65,7 +87,8 @@
                     <?php if ($key === 0) : ?>
                       <input type="hidden" name="gdpr-cookies-gtm-purposes[0][id]" value="technically-necessary">
                     <?php endif; ?>
-                    <input type="text" name="gdpr-cookies-gtm-purposes[<?php echo $key ?>][name]" value="<?php echo $value['name'] ?>" placeholder="Sample Handle" />
+                    <input type="text" name="gdpr-cookies-gtm-purposes[<?php echo $key ?>][name-en]" value="<?php echo $value['name-en'] ?>" placeholder="Sample Handle" />
+                    <input type="text" name="gdpr-cookies-gtm-purposes[<?php echo $key ?>][name-de]" value="<?php echo $value['name-de'] ?>" placeholder="Sample Handle" />
                   </label>
                   <?php if ($key !== 0) : ?>
                     <span><i class="dashicons dashicons-dismiss"></i><a href="#" class="gdpr-cookies-gtm-remove-purpose-js">Remove</a></span>
@@ -79,7 +102,8 @@
               <p>
                 <label for="gdpr-cookies-gtm-purposes">
                   <input type="text" name="gdpr-cookies-gtm-purposes[0][id]" value="<?php echo (array_key_exists('container-id', $dataFromOptionsTable)) ? $dataFromOptionsTable['container-id'] : "" ?>" placeholder="sample-handle" disabled />
-                  <input type="text" name="gdpr-cookies-gtm-purposes[0][name]" value="<?php echo (array_key_exists('container-id', $dataFromOptionsTable)) ? $dataFromOptionsTable['container-id'] : "" ?>" placeholder="Sample Handle" />
+                  <input type="text" name="gdpr-cookies-gtm-purposes[0][name-en]" value="<?php echo (array_key_exists('container-id', $dataFromOptionsTable)) ? $dataFromOptionsTable['container-id'] : "" ?>" placeholder="Sample Handle English" />
+                  <input type="text" name="gdpr-cookies-gtm-purposes[0][name-de]" value="<?php echo (array_key_exists('container-id', $dataFromOptionsTable)) ? $dataFromOptionsTable['container-id'] : "" ?>" placeholder="Sample Handle Deutsch" />
                 </label>
 
               </p>

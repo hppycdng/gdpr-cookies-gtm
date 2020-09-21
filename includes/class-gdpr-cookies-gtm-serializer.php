@@ -60,8 +60,10 @@ class Gdpr_Cookies_Gtm_Serializer
 
     $dataToSerialize["is-active"]        = (null !== wp_unslash($_POST['gdpr-cookies-gtm-is-active']) && $_POST['gdpr-cookies-gtm-is-active'] === "is-active") ? 1 : 0;
     $dataToSerialize["container-id"]     = (null !== wp_unslash($_POST['gdpr-cookies-gtm-container-id'])) ? sanitize_text_field($_POST['gdpr-cookies-gtm-container-id']) : "";
-    $dataToSerialize["banner-headline"]  = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-headline'])) ? sanitize_text_field($_POST['gdpr-cookies-gtm-banner-headline']) : "";
-    $dataToSerialize["banner-copy-text"] = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-copy-text'])) ? sanitize_textarea_field($_POST['gdpr-cookies-gtm-banner-copy-text']) : "";
+    $dataToSerialize["banner-headline-en"]  = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-headline-en'])) ? sanitize_text_field($_POST['gdpr-cookies-gtm-banner-headline-en']) : "";
+    $dataToSerialize["banner-copy-text-en"] = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-copy-text-en'])) ? $_POST['gdpr-cookies-gtm-banner-copy-text-en'] : "";
+    $dataToSerialize["banner-headline-de"]  = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-headline-de'])) ? sanitize_text_field($_POST['gdpr-cookies-gtm-banner-headline-de']) : "";
+    $dataToSerialize["banner-copy-text-de"] = (null !== wp_unslash($_POST['gdpr-cookies-gtm-banner-copy-text-de'])) ? $_POST['gdpr-cookies-gtm-banner-copy-text-de'] : "";
     $dataToSerialize["purposes"] = (null !== wp_unslash($_POST['gdpr-cookies-gtm-purposes'])) ?
       array_values(array_filter($this->recursive_sanitize_text_field($_POST['gdpr-cookies-gtm-purposes']))) : "";
 

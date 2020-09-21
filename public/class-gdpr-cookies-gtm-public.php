@@ -72,7 +72,7 @@ class Gdpr_Cookies_Gtm_Public
   public function init()
   {
     add_action('wp_head', array($this, 'display_gtm_script_head'));
-    add_action('wp_body_open', array($this, 'display_cookie_banner_markup'));
+    add_action('wp_footer', array($this, 'display_cookie_banner_markup'));
   }
 
   public function display_gtm_script_head()

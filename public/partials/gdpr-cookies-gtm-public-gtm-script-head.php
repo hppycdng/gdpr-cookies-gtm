@@ -20,13 +20,15 @@
 
       var userCookiePreferences = JSON.parse(Cookies.get('cookie-preference'));
 
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || []; 
+      var data = {
+        event: 'gtm_fired_after_dom_ready'
+      };
       userCookiePreferences.forEach(function(item) {
         var key = item.name;
-        var data = {};
         data[key] = item.state;
-        window.dataLayer.push(data);
       });
+      window.dataLayer.push(data);
     }
     if (callback instanceof Function) {
       callback();

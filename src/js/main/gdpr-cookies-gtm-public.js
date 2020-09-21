@@ -55,7 +55,9 @@
 
 		if (!Cookies.get("cookie-preference")) showCookieBanner();
 
-		$(".gdpr-cookie-consent-show-banner-js").click(function (e) {
+		$(
+			".gdpr-cookie-consent-show-banner-js, li.c-footer-nav-menu__item--gdpr-cookie-consent-show-banner-js > a"
+		).click(function (e) {
 			e.preventDefault();
 			showCookieBanner();
 		});

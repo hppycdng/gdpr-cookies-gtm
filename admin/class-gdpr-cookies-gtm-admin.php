@@ -105,6 +105,6 @@ class Gdpr_Cookies_Gtm_Admin
      * class.
      */
 
-    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/js/main.min.js', array('jquery'), $this->version, false);
+    wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . './../dist/js/gdpr-cookies-gtm-admin.min.js', array('jquery'), $this->version, false);
   }
 }
